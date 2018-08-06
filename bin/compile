@@ -119,7 +119,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
     fi
 
     message "*** checking for aqueduct"
-    AQUEDUCT_DEP=`cat .packages | grep ^aqueduct`
+    AQUEDUCT_DEP=`cat .packages | grep ^aqueduct:`
     message "Aqueduct Deps: ${AQUEDUCT_DEP}"
     if [ ${#AQUEDUCT_DEP} -ne 0 ]; then
       message "*** Running aqueduct activate"
