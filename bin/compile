@@ -3,7 +3,7 @@
 
 # fail fast
 # set -e
-set -x
+# set -x
 unset GIT_DIR
 
 function message {
@@ -135,4 +135,4 @@ done
 # $BUILD_DIR in the first place? because we need symlinks setup correctly.
 message "*** Copying ${PUB_CACHE}"
 cp -R $PUB_CACHE $BUILD_DIR/pub-cache
-message `ls -l $BUILD_DIR/pub-cache`
+message `ls -lR $BUILD_DIR/pub-cache`
