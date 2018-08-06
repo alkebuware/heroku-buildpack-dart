@@ -122,8 +122,9 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
     AQUEDUCT_DEP=`cat .packages | grep ^aqueduct:`
     message "Aqueduct Deps: ${AQUEDUCT_DEP}"
     if [ ${#AQUEDUCT_DEP} -ne 0 ]; then
-      message "*** Running aqueduct activate"
-      /app/dart-sdk/bin/pub global activate aqueduct
+      version=`/app/dart-sdk/bin/pub deps --style compact | grep "aqueduct " | cut -d ' ' -f3`
+      message "*** Running aqueduct activate ${version}"
+      /app/dart-sdk/bin/pub global activate aqueduct ${version}
     fi
 
 done
