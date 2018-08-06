@@ -104,7 +104,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 
     if [ -d "web" ]
     then
-        message "*** Running pub build"
+        message "*** Running webdev build"
         if [[ -z "$DART_BUILD_CMD" ]]
         then
             message 'Building with "webdev"'
