@@ -117,7 +117,9 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
         message '*** Skipping pub build because "web" folder not found'
     fi
 
+    message "*** checking for aqueduct"
     AQUEDUCT_DEP=`cat .packages | grep ^aqueduct`
+    message "Aqueduct Deps: ${AQUEDUCT_DEP}"
     if [ ${#AQUEDUCT_DEP} -ne 0 ]; then
       message "*** Running aqueduct activate"
       AQ_LIB_PATH=${AQUEDUCT_DEP:16}
