@@ -123,9 +123,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
     message "Aqueduct Deps: ${AQUEDUCT_DEP}"
     if [ ${#AQUEDUCT_DEP} -ne 0 ]; then
       message "*** Running aqueduct activate"
-      AQ_LIB_PATH=${AQUEDUCT_DEP:16}
-      AQ_PATH=`dirname $AQ_LIB_PATH`
-      /app/dart-sdk/bin/pub global activate -spath $AQ_PATH
+      /app/dart-sdk/bin/pub global activate aqueduct
     fi
 
 done
