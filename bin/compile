@@ -2,8 +2,8 @@
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 # fail fast
-set -e
-#set -x
+# set -e
+set -x
 unset GIT_DIR
 
 function message {
