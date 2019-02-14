@@ -103,10 +103,11 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
     for package in $DART_GLOBAL_PACKAGES
     do
         PACKAGE_ELEMENTS=(${package//@/ })
-        if /app/dart-sdk/bin/pub global list | grep -vq ${PACKAGE_ELEMENTS[0]} ; then 
-          /app/dart-sdk/bin/pub global activate "${PACKAGE_ELEMENTS[0]}" "${PACKAGE_ELEMENTS[1]}"
-        else
+        /app/dart-sdk/bin/pub global list | grep -q ${PACKAGE_ELEMENTS[0]}
+        if [ $? -eq 0 ] ; then 
           message "${package} already activated"
+        else
+          /app/dart-sdk/bin/pub global activate "${PACKAGE_ELEMENTS[0]}" "${PACKAGE_ELEMENTS[1]}"
         fi
     done
 
