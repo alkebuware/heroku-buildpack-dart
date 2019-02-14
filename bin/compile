@@ -113,6 +113,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 
     if [ -d "web" ]
     then
+        /app/dart-sdk/bin/pub global activate webdev
         if [[ -z "$DART_BUILD_CMD" ]]
         then
             message 'Building with "webdev"'
