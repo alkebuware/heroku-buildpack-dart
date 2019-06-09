@@ -135,7 +135,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 
 done
 
-for cmd in $ADDITIONAL_CMDS; do
+for cmd in "$ADDITIONAL_CMDS"; do
     eval $cmd
 done
 
