@@ -28,10 +28,6 @@ export_env_dir() {
 }
 
 
-for cmd in "$ADDITIONAL_CMDS"; do
-    $($cmd)
-done
-
 export_env_dir "$3"
 
 mkdir -p "$1" "$2"
@@ -42,6 +38,10 @@ CACHE_DIR=$(cd "$2/" && pwd)
 PUB_CACHE="/app/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
+
+for cmd in "$ADDITIONAL_CMDS"; do
+    $($cmd)
+done
 
 MACHINE=`uname -a`
 message "-----> Welcome, this machine is: $MACHINE"
