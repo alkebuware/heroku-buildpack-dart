@@ -40,7 +40,7 @@ export PUB_CACHE
 mkdir -p $PUB_CACHE
 
 for cmd in "$ADDITIONAL_CMDS"; do
-    ($cmd)
+    bash -c "$cmd"
 done
 
 MACHINE=`uname -a`
