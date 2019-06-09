@@ -39,10 +39,6 @@ PUB_CACHE="/app/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
-for cmd in "$ADDITIONAL_CMDS"; do
-    bash -c $cmd
-done
-
 MACHINE=`uname -a`
 message "-----> Welcome, this machine is: $MACHINE"
 
@@ -138,6 +134,10 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
         message '*** Skipping pub build because "web" folder not found'
     fi
 
+done
+
+for cmd in "$ADDITIONAL_CMDS"; do
+    bash -c $cmd
 done
 
 # I think heroku deletes all the contents of /app and replaces it with
