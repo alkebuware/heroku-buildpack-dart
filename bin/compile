@@ -3,7 +3,7 @@
 
 # fail fast
 # set -e
-# set -x
+set -x
 unset GIT_DIR
 
 function message {
@@ -91,7 +91,7 @@ cd $BUILD_DIR
 for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
     pub_dir=`dirname $filename`
     
-    if echo $SKIP_DIR | grep -q $pub_dir; then
+    if echo "$SKIP_DIR" | grep -q "$pub_dir"; then
       message "*** Skipping $pub_dir"
       continue
     fi
