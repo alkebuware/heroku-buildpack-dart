@@ -137,7 +137,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 done
 
 for cmd in "$ADDITIONAL_CMDS"; do
-    ($cmd)
+    ("$cmd")
 done
 
 # I think heroku deletes all the contents of /app and replaces it with
