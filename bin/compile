@@ -136,9 +136,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 
 done
 
-for cmd in "$ADDITIONAL_CMDS"; do
-    ("$cmd")
-done
+eval $ADDITIONAL_CMD
 
 # I think heroku deletes all the contents of /app and replaces it with
 # whatever is in $BUILD_DIR, so copy over the pub-cache. Why not put it in
