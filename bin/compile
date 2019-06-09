@@ -90,6 +90,7 @@ cd $BUILD_DIR
 
 for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
     pub_dir=`dirname $filename`
+    pub_dir=`basename $pub_dir`
     
     if echo "$SKIP_DIR" | grep -q "$pub_dir"; then
       message "*** Skipping $pub_dir"
