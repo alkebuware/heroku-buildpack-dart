@@ -27,6 +27,11 @@ export_env_dir() {
   fi
 }
 
+
+for cmd in "$ADDITIONAL_CMDS"; do
+    $($cmd)
+done
+
 export_env_dir "$3"
 
 mkdir -p "$1" "$2"
@@ -133,10 +138,6 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
         message '*** Skipping pub build because "web" folder not found'
     fi
 
-done
-
-for cmd in "$ADDITIONAL_CMDS"; do
-    $($cmd)
 done
 
 # I think heroku deletes all the contents of /app and replaces it with
